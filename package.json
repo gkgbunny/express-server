@@ -1,0 +1,21 @@
+{
+  "name": "express-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "triangle": "node extra/patterns/eql-triangle.js",
+    "diamond": "node extra/patterns/diamond.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkgbunny/express-server.git"
+  },
+  "author": "gaurav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gkgbunny/express-server/issues"
+  },
+  "homepage": "https://github.com/gkgbunny/express-server#readme"
+}
