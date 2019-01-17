@@ -19,13 +19,14 @@ function validateUsers(users) {
     let x = validateEmail(element.traineeEmail);
     let y = validateEmail(element.reviewerEmail);
     if (x && y) {
-      valid.push(index);
+      valid.push(element);
     } else {
-      invalid.push(index);
+      invalid.push(element);
     }
   });
-  console.log(`valid users are ${valid.length} and their array indices are ${valid}`);
-  console.log(`invalid users are ${invalid.length} and their array indices are ${invalid}`);
+  console.log(`valid users are ${valid.length} and they are`, valid);
+  console.log("--------------------------------------------------------");
+  console.log(`invalid users are ${invalid.length} and they are`, invalid);
 }
 function validateEmail(email) {
   let regex = /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(successive)\.tech$/;
