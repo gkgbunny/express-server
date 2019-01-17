@@ -13,9 +13,9 @@ const users = [
   }
 ];
 function validateUsers(users) {
-  let valid = []
+  let valid = [];
   let invalid = [];
-  users.forEach(function(element,index) {
+  users.forEach(function(element, index) {
     let x = validateEmail(element.traineeEmail);
     let y = validateEmail(element.reviewerEmail);
     if (x && y) {
