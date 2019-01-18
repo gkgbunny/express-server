@@ -1,4 +1,4 @@
-function eql(n) {
+export default function dia(n) {
   console.log("Print a diamond pattern with 5 rows");
   for (let i = 1; i <= n; i++) {
     let a = "";
@@ -12,7 +12,7 @@ function eql(n) {
     }
     console.log(a, b);
   }
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= n; i++) {
     let c = "";
     for (let j = 1; j <= i - 1; j++) {
       c += " ";
@@ -25,4 +25,3 @@ function eql(n) {
     console.log(c, d);
   }
 }
-eql(5);

@@ -1,18 +1,5 @@
-const users = [
-  {
-    traineeEmail: "trainee1@successive.tech",
-    reviewerEmail: "reviewer1@successive.tech"
-  },
-  {
-    traineeEmail: "trainee2@successive.tech",
-    reviewerEmail: "reviewer2@successive.tech"
-  },
-  {
-    traineeEmail: "trainee3@successive.tech",
-    reviewerEmail: "reviewer3@yahoo.in"
-  }
-];
-function validateUsers(users) {
+import { validateEmail } from "./helpers";
+export default function validateUsers(users) {
   let valid = [];
   let invalid = [];
   users.forEach(function(element, index) {
@@ -25,15 +12,7 @@ function validateUsers(users) {
     }
   });
   console.log(`valid users are ${valid.length} and they are`, valid);
-  console.log("--------------------------------------------------------");
+  console.log();
   console.log(`invalid users are ${invalid.length} and they are`, invalid);
+  console.log("----------------------END----------------------");
 }
-function validateEmail(email) {
-  let regex = /^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(successive)\.tech$/;
-  if (regex.test(email)) {
-    return true;
-  } else {
-    return false;
-  }
-}
-validateUsers(users);
