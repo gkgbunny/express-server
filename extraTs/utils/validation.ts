@@ -1,9 +1,9 @@
-import { IUsers } from './../interfaces';
+import { IUsers } from "./../interfaces";
 import { validateEmail } from "./helpers";
 export default function validateUsers(users: IUsers[]): void {
   let valid: IUsers[] = [];
   let invalid: IUsers[] = [];
-  users.forEach(function(element : IUsers): void {
+  users.forEach(function(element: IUsers): void {
     let x: boolean = validateEmail(element.traineeEmail);
     let y: boolean = validateEmail(element.reviewerEmail);
     if (x && y) {
