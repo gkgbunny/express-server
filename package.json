@@ -4,18 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "triangle": "node extra/patterns/eql-triangle.js",
-    "diamond": "node extra/patterns/diamond.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "babel-node extra --presets env"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/gkgbunny/express-server.git"
   },
-  "author": "gaurav",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/gkgbunny/express-server/issues"
   },
-  "homepage": "https://github.com/gkgbunny/express-server#readme"
+  "homepage": "https://github.com/gkgbunny/express-server#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
 }

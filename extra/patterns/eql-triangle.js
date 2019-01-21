@@ -1,4 +1,4 @@
-function eql(n) {
+export default function eql(n) {
   console.log("Print an equilateral triangle with 10 rows");
   for (let i = 1; i <= n; i++) {
     let a = "";
@@ -13,4 +13,3 @@ function eql(n) {
     console.log(a, b);
   }
 }
-eql(10);
