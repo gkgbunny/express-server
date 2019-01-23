@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "babel-node extra --presets env",
-    "prestart": "rm -r dist",
+    "prestart": "npm run cleardist",
     "start": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
-    "nodemon": "nodemon ./dist/index.js"
+    "nodemon": "nodemon ./dist/index.js",
+    "cleardist": "rm -r dist"
 
   },
   "repository": {
