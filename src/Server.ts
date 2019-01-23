@@ -1,9 +1,9 @@
-import { config } from "dotenv";
 import * as express from "express";
-class Server {
+import { IConfig } from "./config/IConfig";
+export default class Server {
   private app: express.Express;
 
-  public constructor(private config) {
+  public constructor(private config: IConfig) {
     this.app = express();
   }
 
@@ -33,5 +33,3 @@ class Server {
     });
   }
 }
-
-export default Server;
