@@ -1,12 +1,12 @@
 import * as express from "express";
 import { IConfig } from "./config/IConfig";
-import * as bodyParser from 'body-parser';
-import notFoundRoute from './libs/routes/notFoundRoute';
-import errorHandler from './libs/routes/errorHandler';
+import * as bodyParser from "body-parser";
+import notFoundRoute from "./libs/routes/notFoundRoute";
+import errorHandler from "./libs/routes/errorHandler";
 import { log } from "util";
 export default class Server {
   private app: express.Express;
-  bodyParser = require('body-parser')
+  bodyParser = require("body-parser");
 
   public constructor(private config: IConfig) {
     this.app = express();
@@ -26,7 +26,7 @@ export default class Server {
 
   public setupRoutes() {
     const { app } = this;
-    app.get('/health-check', (req, res, next) => {
+    app.get("/health-check", (req, res, next) => {
       res.send("I am Ok");
     });
     app.use(notFoundRoute);
