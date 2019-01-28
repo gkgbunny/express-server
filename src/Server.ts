@@ -3,6 +3,7 @@ import { IConfig } from "./config/IConfig";
 import * as bodyParser from "body-parser";
 import notFoundRoute from "./libs/routes/notFoundRoute";
 import errorHandler from "./libs/routes/errorHandler";
+import router from './router';
 export default class Server {
   private app: express.Express;
   bodyParser = require("body-parser");
@@ -28,6 +29,7 @@ export default class Server {
     app.get("/health-check", (req, res, next) => {
       res.send("I am Ok");
     });
+    app.use("/api", router);
     app.use(notFoundRoute);
     app.use(errorHandler);
   }
