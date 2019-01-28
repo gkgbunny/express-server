@@ -3,7 +3,6 @@ import { IConfig } from "./config/IConfig";
 import * as bodyParser from "body-parser";
 import notFoundRoute from "./libs/routes/notFoundRoute";
 import errorHandler from "./libs/routes/errorHandler";
-import { log } from "util";
 export default class Server {
   private app: express.Express;
   bodyParser = require("body-parser");
