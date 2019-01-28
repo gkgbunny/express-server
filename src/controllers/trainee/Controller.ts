@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { successHandler } from "../../libs/routes/";
-import { log } from "util";
 export default class Controller {
   public retrieve(req: Request, res: Response, next) {
     console.log("retrieve");
