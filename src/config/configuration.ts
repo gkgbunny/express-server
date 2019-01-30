@@ -5,5 +5,6 @@ config();
 
 export const configuration: IConfig = Object.freeze({
   port: process.env.PORT,
-  node_env: process.env.NODE_ENV
+  node_env: process.env.NODE_ENV,
+  key: process.env.KEY
 });
