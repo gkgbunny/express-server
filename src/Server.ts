@@ -3,7 +3,8 @@ import { IConfig } from "./config/IConfig";
 import * as bodyParser from "body-parser";
 import notFoundRoute from "./libs/routes/notFoundRoute";
 import errorHandler from "./libs/routes/errorHandler";
-import router from './router';
+import Database from "./libs/Database";
+import router from "./router";
 export default class Server {
   private app: express.Express;
   bodyParser = require("body-parser");
@@ -37,14 +38,21 @@ export default class Server {
   public run() {
     const {
       app,
-      config: { port }
+      config: { port, mongoUrl }
     } = this;
-    app.listen(port, err => {
-      if (err) {
+    Database.open(mongoUrl)
+      .then(result => {
+        app.listen(port, err => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log(result);
+            console.log(`App listening on port ${port}`);
+          }
+        });
+      })
+      .catch(err => {
         console.log(err);
-      } else {
-        console.log(`App listening on port ${port}`);
-      }
-    });
+      });
   }
 }
