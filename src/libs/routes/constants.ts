@@ -2,7 +2,7 @@ const modules = {
   user: {
     all: ["Head Trainer"],
     read: ["Trainee", "Trainer"],
-    write: ["Trainer"],
+    write: ["Trainee"],
     delete: [],
     update: ["Head Trainer"]
   }

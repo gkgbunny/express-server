@@ -10,7 +10,6 @@ export default class Database {
         )
         .then(fulfilled => {
           resolve("Connection is established");
-          seedData();
         })
         .catch(rejected => {
           reject("Connection establishment rejected");
