@@ -1,10 +1,10 @@
 const modules = {
   user: {
-    all: ["Head Trainer"],
-    read: ["Trainee", "Trainer"],
-    write: ["Trainee"],
+    all: ['head-trainer'],
     delete: [],
-    update: ["Head Trainer"]
-  }
+    read: ['trainee', 'trainer'],
+    update: ['head-trainer'],
+    write: ['trainee'],
+  },
 };
 export default modules;

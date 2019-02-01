@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "lint": "./node_modules/tslint/bin/tslint -c tslint.json -p tsconfig.json --exclude 'node_modules/**/*.{j,t}s'",
+    "lint:fix": "yarn lint -- --fix",
     "dev": "babel-node extra --presets env",
     "prestart": "npm run cleardist",
     "start": "tsc-watch --project . --onSuccess \"npm run nodemon\"",
