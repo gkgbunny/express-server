@@ -19,11 +19,11 @@ export default class UserRepo {
   }
 
   public update(cond: any, data: any): any {
-    return this.model.updateOne({_id: cond}, data, { upsert: true} );
+    return this.model.updateOne({ _id: cond }, data, { upsert: true });
   }
 
   public delete(cond: any): any {
-    return this.model.deleteOne({_id:cond});
+    return this.model.deleteOne({ _id: cond });
   }
 
   public retrieve(condId: any): any {
