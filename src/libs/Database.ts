@@ -1,4 +1,5 @@
 import * as mongoose from "mongoose";
+import seedData from "./seedData";
 export default class Database {
   static open(mongoUrl) {
     return new Promise((resolve, reject) => {
