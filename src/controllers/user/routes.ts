@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import { authMiddleware } from '../../libs/routes';
+import pswrdVerification from '../../libs/pswrdVerification';
 import Controller from './Controller';
+
 const controller = new Controller();
 export const userRouter: Router = Router();
-userRouter.get('/', authMiddleware('Trainee', 'read'), controller.retrieve);
+userRouter.get('/', pswrdVerification(), controller.post);

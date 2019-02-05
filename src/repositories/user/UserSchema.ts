@@ -6,6 +6,7 @@ export default class UserSchema extends mongoose.Schema {
       _id: String,
       email: String,
       name: String,
+      password: String,
       role: String,
     };
     super(schema, option);
