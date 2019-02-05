@@ -1,13 +1,13 @@
-import * as mongoose from 'mongoose';
+import verSchema from '../versionable/VersionableSchema';
 
-export default class UserSchema extends mongoose.Schema {
-  constructor(option: any) {
+export default class UserSchema extends verSchema {
+  constructor(collection: any) {
     const schema = {
       _id: String,
       email: String,
       name: String,
       role: String,
     };
-    super(schema, option);
+    super(schema, collection);
   }
 }

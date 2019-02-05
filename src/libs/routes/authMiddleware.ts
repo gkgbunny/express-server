@@ -17,7 +17,7 @@ export default function authMiddleware(module, permissionType) {
         status: 403,
       });
     } else {
-      new UserRepo().findone(user.email).then((result) => {
+      new UserRepo().userFindoneData(user.email).then((result) => {
         console.log(result);
         if (result.name !== module) {
           next({
@@ -32,7 +32,8 @@ export default function authMiddleware(module, permissionType) {
             status: 403,
           });
         } else {
-          req.body = result.email;
+          req.body = result;
+          console.log(req.body);
           next();
         }
       });
