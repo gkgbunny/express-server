@@ -8,7 +8,7 @@ export default class Controller {
   public post(req: Request, res: Response, next) {
     console.log('Post Method');
     new UserRepo().findone(req.body).then((data) => {
-      const token = jwt.sign(data, configuration.key, { expiresIn: 60 * 15 });
+      const token = jwt.sign(data.toJSON(), configuration.key, { expiresIn: 60 * 15 });
       res.status(200).send(successHandler('Created token is', token, 200));
     });
   }

@@ -4,4 +4,4 @@ import Controller from './Controller';
 
 const controller = new Controller();
 export const userRouter: Router = Router();
-userRouter.get('/', pswrdVerification(), controller.post);
+userRouter.post('/', pswrdVerification(), controller.post);

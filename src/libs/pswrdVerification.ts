@@ -1,9 +1,8 @@
+import * as bcrypt from 'bcrypt';
 import UserRepo from '../repositories/user/UserRepository';
 
 export default function pswrdVerification() {
   return (req, res, next) => {
-    console.log(req.body.email);
-    console.log(req.body.password);
     new UserRepo().findone(req.body.email).then((result) => {
       if (Object.entries(result).length === 0) {
         next({
@@ -11,7 +10,7 @@ export default function pswrdVerification() {
           message: 'No data found',
           status: 403,
         });
-      } else if (result.password !== req.body.password) {
+      } else if (!bcrypt.compare(result.password, req.body.password)) {
         next({
           error: 'Unauthorized Access',
           message: 'Password does not match',
