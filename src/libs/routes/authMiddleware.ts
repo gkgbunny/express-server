@@ -8,8 +8,6 @@ export default function authMiddleware(module, permissionType) {
     const { key } = configuration;
     const token = req.header('authorization');
     const user = jwt.verify(token, key);
-    console.log(user);
-    console.log(user.email);
     if (Object.entries(user).length === 0) {
       next({
         error: 'Unauthorized Access',
@@ -17,8 +15,7 @@ export default function authMiddleware(module, permissionType) {
         status: 403,
       });
     } else {
-      new UserRepo().userFindoneData(user.email).then((result) => {
-        console.log(result);
+      new UserRepo().userFindoneData({email: user.email}).then((result) => {
         if (result.name !== module) {
           next({
             error: 'Unauthorized Access',
@@ -33,7 +30,6 @@ export default function authMiddleware(module, permissionType) {
           });
         } else {
           req.body = result;
-          console.log(req.body);
           next();
         }
       });

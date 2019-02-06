@@ -1,7 +1,7 @@
 export default function notFoundRoute(req, res, next) {
   next({
-    error: "Not Found",
-    message: "error",
-    status: 404
+    error: 'Not Found',
+    message: 'error',
+    status: 404,
   });
 }

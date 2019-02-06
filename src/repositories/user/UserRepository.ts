@@ -19,7 +19,7 @@ export default class UserRepo extends VerRepo<IUserModel, mongoose.Model<IUserMo
   public createData(data: any) {
     return this.create(data);
   }
-  public updateData(cond: any, newdata: any) {
-    return this.update(cond, newdata);
+  public updateUserData(oldData: any) {
+    return this.updateData(oldData);
   }
 }

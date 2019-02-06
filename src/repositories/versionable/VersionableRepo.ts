@@ -1,6 +1,9 @@
 import * as mongoose from 'mongoose';
 
-export default class VersionableRepo<D extends mongoose.Document, M extends mongoose.Model<D>> {
+export default class VersionableRepo<
+  D extends mongoose.Document,
+  M extends mongoose.Model<D>
+> {
   public model: M;
 
   constructor(model) {
@@ -10,22 +13,25 @@ export default class VersionableRepo<D extends mongoose.Document, M extends mong
   public generateObjectId() {
     return String(mongoose.Types.ObjectId());
   }
+  public updateData(oldData) {
+    const createDate = new Date();
+    oldData.createdAt = createDate;
+    const oldId = oldData._id;
+    oldData._id = this.generateObjectId();
+    return this.model.updateOne({_id: oldId}, { $set: { deletedAt: createDate }}).then((newData) => {
+      return this.model.insertMany(oldData);
+    });
+  }
   public count(): mongoose.Query<number> {
-    console.log('afghfj');
     return this.model.countDocuments();
   }
 
   public findone(cond: any): mongoose.DocumentQuery<D, D, {}> {
-    console.log(cond);
-    return this.model.findOne({ email: cond });
+    return this.model.findOne(cond);
   }
 
   public create(data: any): Promise<D> {
     const id = this.generateObjectId();
     return this.model.create({ ...data, _id: id, originalId: id });
-  }
-
-  public update(cond: any, newdata: any): mongoose.Query<any> {
-    return this.model.updateOne({originalId: cond}, newdata);
   }
 }

@@ -1,5 +1,6 @@
-import successHandler from "./successHandler";
-import errorHandler from "./errorHandler";
-import notFoundRoute from "./notFoundRoute";
-import authMiddleware from "./authMiddleware";
+import authMiddleware from './authMiddleware';
+import errorHandler from './errorHandler';
+import notFoundRoute from './notFoundRoute';
+import successHandler from './successHandler';
+
 export { successHandler, errorHandler, notFoundRoute, authMiddleware };
