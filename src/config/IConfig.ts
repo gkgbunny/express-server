@@ -3,4 +3,5 @@ export interface IConfig {
   node_env: string;
   key: string;
   mongoUrl: string;
+  passwrd: string;
 }
