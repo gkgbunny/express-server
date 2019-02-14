@@ -1,4 +1,6 @@
+import * as bcrypt from 'bcrypt';
 import UserRepo from '../repositories/user/UserRepository';
+import { configuration } from './../config/configuration';
 
 export default () => {
   const data = new UserRepo();

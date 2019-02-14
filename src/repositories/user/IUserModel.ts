@@ -4,4 +4,5 @@ export default interface IUserModel extends IVerModel {
   name: string;
   role: string;
   email: string;
+  password: string;
 }

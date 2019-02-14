@@ -8,6 +8,7 @@ export default function authMiddleware(module, permissionType) {
     const { key } = configuration;
     const token = req.header('authorization');
     const user = jwt.verify(token, key);
+    console.log(user);
     if (Object.entries(user).length === 0) {
       next({
         error: 'Unauthorized Access',

@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import { authMiddleware } from '../../libs/routes';
+import authmiddleware from '../../libs/routes/authMiddleware';
 import Controller from './Controller';
+
 const controller = new Controller();
 export const userRouter: Router = Router();
-userRouter.get('/', authMiddleware('Trainee', 'read'), controller.retrieve);
+userRouter.post('/', authmiddleware('Trainee', 'read'), controller.retrieve);
