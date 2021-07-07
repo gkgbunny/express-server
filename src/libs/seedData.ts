@@ -2,25 +2,20 @@ import * as bcrypt from 'bcrypt';
 import UserRepo from '../repositories/user/UserRepository';
 import { configuration } from './../config/configuration';
 
-export default function seedData() {
+export default () => {
   const data = new UserRepo();
-  const saltRounds = 10;
-  const salt = bcrypt.genSaltSync(saltRounds);
-  const hash = bcrypt.hashSync(configuration.passwrd, salt);
-  data.count().then((res) => {
+  data.countData().then((res) => {
     if (res === 0) {
-      data.create({
+      data.createData({
         email: 'head.trainer@successive.tech',
         name: 'Head-Trainer',
-        password: hash,
         role: 'head-trainer',
       });
-      data.create({
+      data.createData({
         email: 'trainee@successive.tech',
         name: 'Trainee',
-        password: hash,
         role: 'trainee',
       });
     }
   });
-}
+};

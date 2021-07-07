@@ -1,13 +1,13 @@
-import * as express from "express";
-import { IConfig } from "./config/IConfig";
-import * as bodyParser from "body-parser";
-import notFoundRoute from "./libs/routes/notFoundRoute";
-import errorHandler from "./libs/routes/errorHandler";
-import Database from "./libs/Database";
-import router from "./router";
+import * as bodyParser from 'body-parser';
+import * as express from 'express';
+import { IConfig } from './config/IConfig';
+import Database from './libs/Database';
+import errorHandler from './libs/routes/errorHandler';
+import notFoundRoute from './libs/routes/notFoundRoute';
+import router from './router';
 export default class Server {
+  public bodyParser = require('body-parser');
   private app: express.Express;
-  bodyParser = require("body-parser");
 
   public constructor(private config: IConfig) {
     this.app = express();
@@ -27,10 +27,10 @@ export default class Server {
 
   public setupRoutes() {
     const { app } = this;
-    app.get("/health-check", (req, res, next) => {
-      res.send("I am Ok");
+    app.get('/health-check', (req, res, next) => {
+      res.send('I am Ok');
     });
-    app.use("/api", router);
+    app.use('/api', router);
     app.use(notFoundRoute);
     app.use(errorHandler);
   }
@@ -38,11 +38,11 @@ export default class Server {
   public run() {
     const {
       app,
-      config: { port, mongoUrl }
+      config: { port, mongoUrl },
     } = this;
     Database.open(mongoUrl)
-      .then(result => {
-        app.listen(port, err => {
+      .then((result) => {
+        app.listen(port, (err) => {
           if (err) {
             console.log(err);
           } else {
@@ -51,7 +51,7 @@ export default class Server {
           }
         });
       })
-      .catch(err => {
+      .catch((err) => {
         console.log(err);
       });
   }

@@ -1,26 +1,25 @@
 import * as mongoose from 'mongoose';
+import { userModel } from '../user/UserModel';
+import VerRepo from '../versionable/VersionableRepo';
 import IUserModel from './IUserModel';
-import { userModel } from './UserModel';
 
-export default class UserRepo {
-  public static generateObjectId() {
-    return String(mongoose.Types.ObjectId());
-  }
-  private model: mongoose.Model<IUserModel>;
-
+export default class UserRepo extends VerRepo<IUserModel, mongoose.Model<IUserModel>> {
   constructor() {
-    this.model = userModel;
+    super(userModel);
   }
-
-  public count(): mongoose.Query<number> {
-    return this.model.countDocuments();
+  public userFindoneData(data) {
+    return this.findone(data);
   }
-
-  public findone(cond: any): mongoose.DocumentQuery<IUserModel, IUserModel, {}> {
-    return this.model.findOne({ email: cond });
+  public generateId() {
+    return this.generateObjectId();
   }
-
-  public create(data: any): Promise<IUserModel> {
-    return this.model.create({ ...data, _id: UserRepo.generateObjectId() });
+  public countData() {
+    return this.count();
+  }
+  public createData(data: any) {
+    return this.create(data);
+  }
+  public updateUserData(oldData: any) {
+    return this.updateData(oldData);
   }
 }
